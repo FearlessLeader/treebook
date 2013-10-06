@@ -1,5 +1,11 @@
 Treebook::Application.routes.draw do
+  devise_for :users
+
   resources :statuses
+
+  # Devise install instruction (#2):
+  # 'Ensure you have defined root_url to *something* in your config/routes.rb.'
+  root to: 'statuses#index'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

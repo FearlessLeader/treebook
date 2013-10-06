@@ -34,4 +34,8 @@ Treebook::Application.configure do
 
   # Expands the lines which load the assets
   config.assets.debug = true
+
+  # Devise install instruction (#1):
+  # 'Define default url option(s) in your environment files':
+  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
 end
