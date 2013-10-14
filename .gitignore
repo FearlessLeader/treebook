@@ -16,3 +16,4 @@
 
 # Ignore all .directory files.
 .directory
+/nbproject

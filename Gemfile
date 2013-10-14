@@ -8,6 +8,8 @@ gem 'rails', '3.2.8'
 gem 'sqlite3'
 gem 'devise'
 gem 'minitest'
+gem 'simple_form'
+#gem 'simple_form','~>3.0.0.rc'
 
 
 # Gems used only for assets and not required

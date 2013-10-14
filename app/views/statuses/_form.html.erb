@@ -1,25 +1,39 @@
-<%= form_for(@status) do |f| %>
+<!-- Modified - 20131011092700 per JoshMcCullough
+  -- https://github.com/plataformatec/simple_form/issues/857
+  -- &lt;%= simple_form_for(@status, :defaults => { :input_html => { :class =>  "form-control" } }) do |f| %&gt;
+-->
+<%= simple_form_for(@status, :html => { :class => 'form-horizontal' }) do |f| %>
   <% if @status.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@status.errors.count, "error") %> prohibited this status from being saved:</h2>
 
       <ul>
-      <% @status.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
+        <% @status.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
       </ul>
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :content %><br />
-    <%= f.text_area :content %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
+  <%= f.input :user_id, 
+              collection:      User.all, 
+              label_method:    :full_name,
+              label_html:      { class: 'col-sm-2' },
+              my_wrapper_html: { class: 'col-sm-4' }, 
+              input_html:      { class: 'form-control' }
+  %>
+
+  <%= f.input :content, 
+              label_html:      { class: 'col-sm-2' },
+              my_wrapper_html: { class: 'col-sm-4' }, 
+              input_html:      { class: 'form-control' }
+  %>
+
+  <div class="container actions">
+    <div class="well col-sm-6">
+        <%= f.button :submit, 
+                   { :class => 'btn btn-primary' } %>
+    </div>
   </div>
 <% end %>
+ 
