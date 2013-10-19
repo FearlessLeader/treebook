@@ -7,7 +7,12 @@ gem 'rails', '3.2.8'
 
 gem 'sqlite3'
 gem 'devise'
-gem 'minitest'
+
+# The following line will install minitest 5.0.x
+# gem 'minitest'
+# Falling back to minitest 4.x.x to eliminate following errors running tests:
+# uninitialized class variable @@installed_at_exit in Test::Unit::Runner (NameError)
+gem "minitest", "~> 4.0"
 gem 'simple_form'
 #gem 'simple_form','~>3.0.0.rc'
 
