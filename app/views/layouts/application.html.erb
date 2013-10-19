@@ -29,10 +29,31 @@
 
 <!-- Per Devise installation instruction #3:
      'Ensure you have flash messages in app/views/layouts/application.html.erb. For example:'
- -->
-	<p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+	<p class="notice">&lt;%= notice %&gt;</p>
+    <p class="alert">&lt;%= alert %&gt;</p>
 
+    &lt;% if flash[:notice] %&gt;
+      <div class="alert alert-success">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+        &lt;%= flash[:notice] %&gt;
+      </div>
+    &lt;% end %&gt;
+
+    &lt;% if flash[:alert] %&gt;
+      <div class="alert alert-danger">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+        &lt;%= flash[:alert] %&gt;
+      </div>
+    &lt;% end %&gt;
+ -->     
+ 
+     <% flash.each do |type, message| %>
+      <div class="alert <%= flash_class type %>">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+        <%= message %>
+      </div>
+    <% end %>
+ 
 	<%= yield %>
 </div>
 
