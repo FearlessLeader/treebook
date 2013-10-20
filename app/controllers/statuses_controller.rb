@@ -1,7 +1,7 @@
 class StatusesController < ApplicationController
   
   # Added Devise controller filter copied from platformatec/devise web site:
-  before_filter :authenticate_user!, only: [:new]
+  before_filter :authenticate_user!, only: [:new, :create, :edit, :update]
   
   # GET /statuses
   # GET /statuses.json
