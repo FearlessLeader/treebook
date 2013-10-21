@@ -42,12 +42,33 @@ class UserTest < ActiveSupport::TestCase
   end
   
   test "a user should have a profile name without spaces" do
-    user              = User.new
-    user.profile_name = "My Profile Name With Spaces"
+    user = User.new( first_name: 'Jason',
+                     last_name:  'Seifer',
+                     email:      'jason2@teamtreehouse.com' )
+    user.password = 'asdfasdf'
+    user.password_confirmation = 'asdfasdf'
 
+    user.profile_name = "Mike The Frog"
+
+    # assert_equal( "Mike The Frog", user.profile_name, "profile_name set to " + user.profile_name )
+    # refute_match( /^[a-zA-Z0-9_-]+$/, user.profile_name, "profile_name vs. regex" )
     assert !user.save
     assert !user.errors[:profile_name].empty?
-    assert user.errors[:profile_name].include?("Must be formatted correctly.")
+    # The string in the .include?("") below must match exactly the string in user.rb:
+    #  -- validates -> profile_name -> format: -> { message: ""} string or
+    #  -- this test will fail.
+    assert user.errors[:profile_name].include?("Must be formatted correctly."), "That's all folks!"
+  end
+  
+  test "a user can have a correctly formatted profile name" do
+    user = User.new( first_name: 'Jason',
+                     last_name:  'Seifer',
+                     email:      'jason2@teamtreehouse.com' )
+    user.password = 'asdfasdf'
+    user.password_confirmation = 'asdfasdf'
+    user.profile_name = 'jasonseifer_1'
+    
+    assert user.valid? "Validated a user with a correctly formatted profile name"
   end
   
 end
