@@ -15,6 +15,7 @@ Treebook::Application.routes.draw do
   # Devise install instruction (#2):
   # 'Ensure you have defined root_url to *something* in your config/routes.rb.'
   root to: 'statuses#index'
+  get '/:id',  to: 'profiles#show'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
