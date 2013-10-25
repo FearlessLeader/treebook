@@ -7,7 +7,7 @@
 	padding: 5px 0;
 }
 
-.status > p {
+ .status p {
 	margin: 4px 0;
 }
 
@@ -21,4 +21,9 @@
 
 .status.hover .admin {
 	display:    inline;
+}
+
+.post_status_btn {
+    margin-top:    -5px;
+    margin-bottom: 10px;
 }
