@@ -15,19 +15,17 @@
     </div>
   <% end %>
 
-  <%= f.input :user_id, 
+  <%#= f.input :user_id, 
               collection:      User.all, 
               label_method:    :full_name,
               label_html:      { class: 'col-sm-2' },
               my_wrapper_html: { class: 'col-sm-4' }, 
-              input_html:      { class: 'form-control' }
-  %>
+              input_html:      { class: 'form-control' } %>
 
   <%= f.input :content, 
               label_html:      { class: 'col-sm-2' },
               my_wrapper_html: { class: 'col-sm-4' }, 
-              input_html:      { class: 'form-control' }
-  %>
+              input_html:      { class: 'form-control' } %>
 
   <div class="container actions">
     <div class="well col-sm-6">
