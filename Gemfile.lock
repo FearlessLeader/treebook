@@ -3,7 +3,7 @@ GEM
   specs:
     actionmailer (3.2.8)
       actionpack (= 3.2.8)
-      mail (~> 2.4.4)
+      mail (>= 2.5.5)
     actionpack (3.2.8)
       activemodel (= 3.2.8)
       activesupport (= 3.2.8)
